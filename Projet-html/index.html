@@ -37,13 +37,29 @@
   <!-- End Menu Top --> 
   
   <!-- Start Slider -->
-  <div id="slider">
+  <div id="sliderAll">
     <div id="contenu">
-      <div class="partDesSlider">
+      <div class="partDesSliderAll">
         <h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
         <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took</p>
         <a href="qui-sommes-nous.html" class="btDiscover">Découvrir</a> </div>
-      <img class="image_slider" src="img/slider2.png"> </div>
+     
+	  
+	  <div id="slider">  
+<div class="slides">  
+  <img src="img/women.png" width="100%" />
+ </div>
+  
+		  <div class="slides">  
+  <img src="img/women2.png" width="100%" />
+ </div>
+  
+  
+  <div id="dot"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+ </div>
+	  
+	  
+	  </div>
   </div>
   <!-- End Slider -->
   
@@ -555,6 +571,35 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Le produit a été ajouté à la liste de souhaits!');
         });
     });
+		var index = 0;
+var slides = document.querySelectorAll(".slides");
+var dot = document.querySelectorAll(".dot");
+
+function changeSlide(){
+
+  if(index<0){
+    index = slides.length-1;
+  }
+  
+  if(index>slides.length-1){
+    index = 0;
+  }
+  
+  for(let i=0;i<slides.length;i++){
+    slides[i].style.display = "none";
+    dot[i].classList.remove("active");
+  }
+  
+  slides[index].style.display= "block";
+  dot[index].classList.add("active");
+  
+  index++;
+  
+  setTimeout(changeSlide,5000);
+  
+}
+
+changeSlide();
 </script>
 </body>
 </html>
